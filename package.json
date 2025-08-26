@@ -1,5 +1,24 @@
 {
   "dependencies": {
     "express": "^5.1.0"
-  }
+  },
+  "name": "miniature-enigma-hello-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehb2004/miniature-enigma-hello-express.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ehb2004/miniature-enigma-hello-express/issues"
+  },
+  "homepage": "https://github.com/ehb2004/miniature-enigma-hello-express#readme"
 }
