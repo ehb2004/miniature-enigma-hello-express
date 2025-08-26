@@ -1,13 +1,14 @@
 {
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
   },
   "name": "miniature-enigma-hello-express",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.mjs"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,6 @@
   "bugs": {
     "url": "https://github.com/ehb2004/miniature-enigma-hello-express/issues"
   },
-  "homepage": "https://github.com/ehb2004/miniature-enigma-hello-express#readme"
+  "homepage": "https://github.com/ehb2004/miniature-enigma-hello-express#readme",
+  "description": ""
 }
