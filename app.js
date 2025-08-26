@@ -1,4 +1,2 @@
-// pushing changes to the repository and whatnot
-// I really do not understand what this git pushing is.
-
-//No, like I don't even know if I am doing it correctly. Go figure...
+//What is git push?
+// I cannot even remember which push this is.
