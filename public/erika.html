@@ -6,6 +6,20 @@
     <title>Document</title>
 </head>
 <body>
+    <h1> erika page</h1>
+    <a href="/"> home</a>
+
+    <script>
+        fetch('/api/erika')
+          .then(response => response.json())
+          .then(data => {
+            document.body.innerHTML += `<p>API says: ${data.myVar}</p>`;
+            console.log ("data sent");
+          })
+          .catch(err => {
+            document.body.innerHTML += `<p>Error fetching API</p>`;
+          });
+      </script>
     
 </body>
 </html>

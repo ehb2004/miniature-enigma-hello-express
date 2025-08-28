@@ -20,7 +20,13 @@ app.get('/', (req, res) => {
 
 app.get('/erika', (req, res) => {
   //res.send('ERIKA. <a href="/">home</a>')
-  res.send(join(__dirname, 'public', 'erika.html'))
+  res.sendFile(join(__dirname, 'public', 'erika.html'))
+})
+
+app.get('/api/erika', (req, res) => {
+  // res.send('erika. <a href="/">home</a>')
+  const myVar = 'Hello from server!';
+  res.json({ myVar });
 })
 
 app.listen(3000)
