@@ -9,6 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 app.use(express.static(join(__dirname, 'public')));
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Hello Express from Render <a href="/erika">erika</a>')
@@ -28,6 +29,24 @@ app.get('/api/erika', (req, res) => {
   const myVar = 'Hello from server!';
   res.json({ myVar });
 })
+
+app.get('/api/query', (req, res) => {
+
+  // console.log("Client request with query param", req.query.name);
+  const name = req.query.name;
+  res.json({ message : `Hi, ${name}. how are you`});
+
+});
+
+app.get('/api/url/:id', (req, res) => {
+  console.log ("client request with URL param:", req.params.id)
+
+});
+
+app.post('/api/body', (req, res) => {
+  console.log ("client request with POST body:", req.query);
+
+});
 
 app.listen(3000)
 //TODO: refactor to use env port.
