@@ -1,6 +1,9 @@
 {
   "dependencies": {
+    "dotenv": "^17.2.2",
+    "env": "^0.0.2",
     "express": "^5.1.0",
+    "mongodb": "^6.19.0",
     "nodemon": "^3.1.10"
   },
   "name": "miniature-enigma-hello-express",
