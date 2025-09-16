@@ -2,39 +2,38 @@ import 'dotenv/config'
 import express from 'express'
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-//import {MongoClient, ServerApiVersion} from 'mongodb';
+import {MongoClient, ServerApiVersion} from 'mongodb';
 
 const app = express()
 const PORT = process.env.PORT || 3000;
-// const path = require('path');
+// ES module: path import and __dirname setup
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const uri = process.env.MONGO_URI;
-//const uri = "mongodb+srv://erika:pass@cluster0.71wo5ki.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-//const client = new MongoClient(uri, {
-  // serverApi: {
-  //   version: ServerApiVersion.v1,
-  //   strict: true,
-  //   deprecationErrors: true,
-  // }
-//});
+//Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
 
-//async function run() {
-  // try {
-  //   // Connect the client to the server	(optional starting in v4.7)
-  //   await client.connect();
-  //   // Send a ping to confirm a successful connection
-  //   await client.db("admin").command({ ping: 1 });
-  //   console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  // } finally {
-  //   // Ensures that the client will close when you finish/error
-  //   await client.close();
-  // }
-//}
-// run().catch(console.dir);
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
 
 
 app.use(express.static(join(__dirname, 'public')));
@@ -61,7 +60,7 @@ app.get('/erika', (req, res) => {
 })
 
 app.get('/api/erika', (req, res) => {
-  // res.send('erika. <a href="/">home</a>')
+  //res.send('erika. <a href="/">home</a>')
   const myVar = 'Hello from server!';
   res.json({ myVar });
 })
@@ -84,5 +83,5 @@ app.post('/api/body', (req, res) => {
 
 });
 
-app.listen(3000)
-//TODO: refactor to use env port.
+app.listen(PORT);
+// Now using PORT from .env
